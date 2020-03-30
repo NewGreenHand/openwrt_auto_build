@@ -6,27 +6,25 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: Build OpenWrt
+name: Build ipq40xx
 
 on:
-  release:
-    types: published
   push:
     branches:
       - master
     paths:
-      - '.config'
+      - 'ipq40xx.config'
   watch:
     types: started
-#  schedule:
-#    - cron: 0 8 * * 5
+  schedule:
+    - cron: 0 17 * * 5
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  CONFIG_FILE: .config
+  CONFIG_FILE: ipq40xx.config
   DIY_SH: diy.sh
-  SSH_ACTIONS: true
+  SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
@@ -110,5 +108,5 @@ jobs:
       uses: actions/upload-artifact@master
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: OpenWrt_firmware
+        name: openwrt-ipq40xx-generic-p2w_r619ac-
         path: ${{ env.FIRMWARE }}
