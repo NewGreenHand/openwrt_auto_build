@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: Build ipq40xx
+name: Build raspberry pi 4b
 
 on:
   push:
