@@ -16,8 +16,8 @@ on:
       - 'ipq40xx.config'
   watch:
     types: started
-  schedule:
-    - cron: 0 17 * * 5
+#  schedule:
+#    - cron: 0 17 * * 5
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
